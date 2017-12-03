@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TreasureTest {
-  int number = 10;
+  int number = 1000;
   Graph gr;
   private TreeSet<Hero> scoreBoard;
   Thread[] thread = new Thread[number];
