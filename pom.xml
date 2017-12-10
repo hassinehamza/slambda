@@ -23,12 +23,44 @@
     </dependency>
 
     <!-- TESTS -->
+
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.8.8</version>
+    </dependency>
+
+    <!-- Creson emulation -->
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-creson-server</artifactId>
+      <version>9.0.3.Final</version>
+      <type>test-jar</type>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-creson-server</artifactId>
+      <version>9.0.3.Final</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-server-hotrod</artifactId>
+      <version>9.0.3.Final</version>
+      <type>test-jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-core</artifactId>
+      <version>9.0.3.Final</version>
+      <type>test-jar</type>
+    </dependency>
+
 
   </dependencies>
 

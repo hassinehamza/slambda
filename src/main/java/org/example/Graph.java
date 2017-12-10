@@ -1,14 +1,16 @@
 package org.example;
 
+
+import org.infinispan.creson.Shared;
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.infinispan.creson.Shared;
-
 public class Graph implements Serializable {
 
- 
+
   private static final long serialVersionUID = -1722773175340282633L;
   
   private int numberNodes;
@@ -16,8 +18,9 @@ public class Graph implements Serializable {
   @Shared
   ArrayList<Room> nodes = new ArrayList<>();
 
-  public Graph() {
-  };
+
+  public Graph() {};
+
 
   public Graph(int n) {
     this.numberNodes = n;
@@ -40,15 +43,17 @@ public class Graph implements Serializable {
   }
 
   public void addDirectedPath(int begId, int endId) {
-    Room beg;
-    Room end;
-    if ((beg = getRoom(begId)) == null) {
+
+    Room beg = getRoom(begId);
+    Room end = getRoom(endId);
+    if (beg == null) {
       beg = addRoom(begId);
     }
-    if ((end = getRoom(endId)) == null) {
+    if (end == null) {
       end = addRoom(endId);
     }
-    beg.adjList.add(end);
+    beg.addRoom(end);
+
   }
 
   public void addUndirectedPath(int roomA, int roomB) {
@@ -61,7 +66,18 @@ public class Graph implements Serializable {
     return r.nextInt(upperBound - lowerBound) + lowerBound;
   }
 
+
+  @Override
+  public String toString(){
+    String ret="";
+    for(int i=0; i<this.nodes.size(); i++) {
+      ret+=this.nodes.get(i).toString();
+      if (i<this.nodes.size()-1) ret+=",";
+    }
+    return ret;
+
   public static void main(String[] args) {
+
 
   }
 
