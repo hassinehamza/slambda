@@ -4,7 +4,7 @@ import java.util.Stack;
 
 
 
-public class Hero implements Comparable<Hero> {
+public class Hero implements Comparable<Hero> , Runnable{
 
   private int score;
   private Graph graph;
@@ -35,7 +35,7 @@ public class Hero implements Comparable<Hero> {
     while (!stack.isEmpty()) {
       Room currentRoom = stack.pop();
 
-      System.out.println(currentRoom.id + " " + currentRoom.getAdjList());
+      //System.out.println(currentRoom.id + " " + currentRoom.getAdjList());
       this.score += currentRoom.loot();
       for (Room r : currentRoom.getAdjList()) {
 
@@ -62,6 +62,11 @@ public class Hero implements Comparable<Hero> {
 
   public int getScore() {
     return score;
+  }
+
+  @Override
+  public void run() {
+    play(); 
   }
 
 }
