@@ -31,7 +31,7 @@ public class Hero implements Comparable<Hero> , Runnable{
 
     Stack<Room> stack = new Stack<Room>();
     stack.push(room);
-    visited[room.id] = true;
+    visited[room.getId()] = true;
     while (!stack.isEmpty()) {
       Room currentRoom = stack.pop();
 
@@ -39,8 +39,8 @@ public class Hero implements Comparable<Hero> , Runnable{
       this.score += currentRoom.loot();
       for (Room r : currentRoom.getAdjList()) {
 
-        if (!visited[r.id]) {
-          visited[r.id] = true;
+        if (!visited[r.getId()]) {
+          visited[r.getId()] = true;
           stack.push(r);
         }
       }
@@ -54,16 +54,19 @@ public class Hero implements Comparable<Hero> , Runnable{
 
   @Override
   public int compareTo(Hero other) {
-    if (this.score - other.score != 0)
-      return -(this.score - other.score);
+    if (this.score - other.getScore()!= 0)
+      return -(this.score - other.getScore());
     else
-      return this.name.compareTo(other.name);
+      return this.name.compareTo(other.getName());
   }
 
   public int getScore() {
     return score;
   }
-
+  
+  public String getName() {
+    return name;
+  }
   @Override
   public void run() {
     play(); 
