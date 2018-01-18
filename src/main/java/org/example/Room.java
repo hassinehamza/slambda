@@ -2,16 +2,22 @@ package org.example;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+
 import java.util.LinkedList;
 
 
 @Entity
+@Indexed
 public class Room{
 
 	private static final long serialVersionUID = 4805204995317415754L;
 
 	@Id
 	int id;
+	@Field
 	int treasure;
 
 	LinkedList<Room>  adjList;
@@ -27,7 +33,10 @@ public class Room{
 	public int getId(){
 		return id;
 	}
-
+	
+	public int getTreasure() {
+	  return treasure;
+	}
 	public int loot(){
 		if (treasure == 1) {
 			treasure = 0;

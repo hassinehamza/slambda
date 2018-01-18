@@ -19,9 +19,6 @@ public class Graph implements Serializable {
   ArrayList<Room> nodes = new ArrayList<>();
 
 
-  public Graph() {};
-
-
   public Graph(int n) {
     this.numberNodes = n;
     for (int i = 0; i < n; i++) {

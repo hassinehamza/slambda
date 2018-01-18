@@ -1,0 +1,17 @@
+/* 
+  This type is indexed, but not all its fields are.
+  @Indexed 
+*/
+message Room {
+	/* 
+    A field that is both indexed and stored.
+    @IndexedField 
+   */
+	required int32 id = 1;
+	/* 
+    A field that is both indexed and stored.
+    @IndexedField 
+   */
+	required int32 treasure = 2;
+	repeated Room adjList = 3;
+}
