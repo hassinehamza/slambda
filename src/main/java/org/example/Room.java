@@ -6,12 +6,13 @@ import javax.persistence.Id;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 
 @Entity
 @Indexed
-public class Room{
+public class Room implements Serializable{
 
 	private static final long serialVersionUID = 4805204995317415754L;
 
@@ -19,6 +20,8 @@ public class Room{
 	int id;
 	@Field
 	int treasure;
+
+
 
 	LinkedList<Room>  adjList;
 
@@ -53,15 +56,16 @@ public class Room{
 		return adjList;
 	}
 
-	@Override
-	public String toString(){
-		String ret ="Room"+this.id+"[";
-		for(int i=0; i<adjList.size(); i++) {
-			ret += adjList.get(i).getId();
-			if (i+1!=adjList.size()) ret+=" ";
-		}
-		ret += "]";
-		return ret;
-	}
+//	@Override
+//	public String toString(){
+//		/*String ret ="Room"+this.id+"[";
+//		for(int i=0; i< adjList.size(); i++) {
+//			ret += adjList.get(i).getId();
+//			if (i+1!=adjList.size()) ret+=" ";
+//		}
+//		ret += "]";
+//		return ret;*/
+//		return this.id + "  " + this.treasure;
+//	}
 
 }
