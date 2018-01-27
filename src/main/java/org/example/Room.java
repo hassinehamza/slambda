@@ -56,6 +56,13 @@ public class Room implements Serializable{
 		return adjList;
 	}
 
+	@Override
+	public String toString(){
+		return "Room " + this.id + "  " + this.treasure;
+	}
+
+
+
 //	@Override
 //	public String toString(){
 //		/*String ret ="Room"+this.id+"[";

@@ -35,11 +35,11 @@
 			<version>5.0.1.Final</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-remote-query-client</artifactId>
-			<version>9.1.0.Final</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.infinispan</groupId>-->
+			<!--<artifactId>infinispan-remote-query-client</artifactId>-->
+			<!--<version>9.1.0.Final</version>-->
+		<!--</dependency>-->
 			<!-- If using JPA, add: -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
@@ -53,11 +53,11 @@
 				<version>5.0.1.Final</version>
 			</dependency>
 
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-remote-query-server</artifactId>
-			<version>9.0.3.Final</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.infinispan</groupId>-->
+			<!--<artifactId>infinispan-remote-query-server</artifactId>-->
+			<!--<version>9.0.3.Final</version>-->
+		<!--</dependency>-->
 
 			<!-- TESTS -->
 
