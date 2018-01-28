@@ -14,7 +14,8 @@ import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.creson.Factory;
 //
-import org.infinispan.creson.search.Search;
+
+import org.infinispan.hotrod.creson.serialization.Search;
 import org.infinispan.query.dsl.Query;
 import org.infinispan.query.dsl.QueryFactory;
 import org.infinispan.query.dsl.Query;
@@ -95,8 +96,8 @@ public class TreasureTest {
       QueryFactory qf = Search.getQueryFactory(cache);
 
 
-      Query q = qf.create("from org.example.Room o where o.x = 0");
-      System.out.println("list" + q.list());
+      /*Query q = qf.create("from org.example.Room o where o.x = 0");
+      System.out.println("list" + q.list());*/
 
       System.out.println("query sent");
   }
