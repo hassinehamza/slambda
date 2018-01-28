@@ -13,7 +13,8 @@ import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.creson.Factory;
-
+//
+import org.infinispan.creson.search.Search;
 import org.infinispan.query.dsl.Query;
 import org.infinispan.query.dsl.QueryFactory;
 import org.infinispan.query.dsl.Query;
@@ -77,26 +78,27 @@ public class TreasureTest {
       System.out.println(batMan.getScore());
 
 
-//
-//        ConfigurationBuilder builder = new ConfigurationBuilder();
-//       builder.addServer().host("127.0.0.1").port(11222);
-//
-//
-//      RemoteCacheManager cacheManager = new RemoteCacheManager(builder.build());
 
-//    /*this part of marshalling was because an illegalArgumentException
-//     * " No marshaller registered for org.example.Room  was thrown *
-//
-      //  RemoteCache cache = cacheManager.getCache(CRESON_CACHE_NAME);
+        ConfigurationBuilder builder = new ConfigurationBuilder();
+       builder.addServer().host("127.0.0.1").port(11222);
+
+
+      RemoteCacheManager cacheManager = new RemoteCacheManager(builder.build());
+
+    /*this part of marshalling was because an illegalArgumentException
+     * " No marshaller registered for org.example.Room  was thrown */
+
+        RemoteCache cache = cacheManager.getCache(CRESON_CACHE_NAME);
 
 //
-//       // System.out.println("creson cache:" + cache.getName());
-//        QueryFactory qf = Search.getQueryFactory(cache);
-//
-//        Query q = qf.create("\"from org.example.Room where  treasure > 0\"");
-//       q.list();
-//
-        System.out.println("test done");
+      System.out.println("creson cache:" + cache.size());
+      QueryFactory qf = Search.getQueryFactory(cache);
+
+
+      Query q = qf.create("from org.example.Room o where o.x = 0");
+      System.out.println("list" + q.list());
+
+      System.out.println("query sent");
   }
 
 }
