@@ -15,7 +15,7 @@ import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.creson.Factory;
 //
 
-import org.infinispan.hotrod.creson.serialization.Search;
+import org.infinispan.creson.search.Search;
 import org.infinispan.query.dsl.Query;
 import org.infinispan.query.dsl.QueryFactory;
 import org.infinispan.query.dsl.Query;
@@ -29,8 +29,6 @@ import org.testng.annotations.Test;
 
 import com.google.protobuf.Descriptors.DescriptorValidationException;
 import com.google.protobuf.Descriptors.FileDescriptor;
-
-import marshellers.RoomMarsheller;
 
 import static org.infinispan.creson.Factory.CRESON_CACHE_NAME;
 
@@ -91,13 +89,20 @@ public class TreasureTest {
 
         RemoteCache cache = cacheManager.getCache(CRESON_CACHE_NAME);
 
-//
+
+////
       System.out.println("creson cache:" + cache.size());
+
+
       QueryFactory qf = Search.getQueryFactory(cache);
 
 
-      /*Query q = qf.create("from org.example.Room o where o.x = 0");
-      System.out.println("list" + q.list());*/
+      Query q = qf.create("from org.example.Room room where room.treasure = 0");
+
+
+      List result = q.list();
+
+      System.out.println("list" + q.list());
 
       System.out.println("query sent");
   }
