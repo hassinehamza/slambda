@@ -41,8 +41,8 @@ public class TreasureTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        Factory.get("localhost:11222");
-        gr = new Graph(10);
+        Factory.get("localhost:11223");
+        gr = new Graph(100);
         for (int i = 0; i < gr.getGraphSize(); i++) {
             gr.addUndirectedPath(i, gr.randomRoom(0, 10));
             gr.addUndirectedPath(i, gr.randomRoom(0, 10));
@@ -79,7 +79,7 @@ public class TreasureTest {
 
 
         ConfigurationBuilder builder = new ConfigurationBuilder();
-       builder.addServer().host("127.0.0.1").port(11222);
+       builder.addServer().host("127.0.0.1").port(11223);
 
 
       RemoteCacheManager cacheManager = new RemoteCacheManager(builder.build());
@@ -102,7 +102,7 @@ public class TreasureTest {
 
       List result = q.list();
 
-      System.out.println("list" + q.list());
+      System.out.println("list" + q.list().size());
 
       System.out.println("query sent");
   }

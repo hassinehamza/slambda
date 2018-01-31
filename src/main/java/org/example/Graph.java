@@ -15,14 +15,16 @@ public class Graph implements Serializable {
   
   private int numberNodes;
   
-  @Shared
+  @Shared(forceNew = true)
   ArrayList<Room> nodes = new ArrayList<>();
 
 
   public Graph(int n) {
     this.numberNodes = n;
     for (int i = 0; i < n; i++) {
-      nodes.add(new Room(i));
+        Room r = new Room(i);
+        r.toString();
+         nodes.add(r);
     }
   }
 
